@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alessandra Franco Lammoglia — Data Science &amp; Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F6F2;
+    --paper-dim:#EFEDE6;
+    --ink:#15213B;
+    --ink-soft:#4B566E;
+    --line:#D8D4C8;
+    --teal:#1F6F5C;
+    --teal-soft:#E4EFEA;
+    --amber:#B8863A;
+    --radius:2px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  ::selection{ background:var(--teal-soft); color:var(--ink); }
+
+  a{ color:inherit; }
+
+  .mono{ font-family:'JetBrains Mono', monospace; }
+
+  .wrap{
+    max-width:840px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- Nav ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(247,246,242,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:840px; margin:0 auto; padding:14px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-mark{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px; font-weight:600; letter-spacing:0.02em;
+    color:var(--ink);
+  }
+  .nav-mark span{ color:var(--teal); }
+  .nav-links{ display:flex; gap:22px; list-style:none; }
+  .nav-links a{
+    font-size:13px; text-decoration:none; color:var(--ink-soft);
+    letter-spacing:0.03em; text-transform:uppercase;
+    transition:color .15s ease;
+  }
+  .nav-links a:hover{ color:var(--teal); }
+  .nav-links a:focus-visible{ outline:2px solid var(--teal); outline-offset:3px; }
+  @media (max-width:600px){ .nav-links{ gap:14px; } .nav-links a{ font-size:11px; } }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:76px 0 56px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px; color:var(--teal);
+    margin-bottom:18px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .hero-eyebrow::before{
+    content:''; width:7px; height:7px; border-radius:50%;
+    background:var(--teal); display:inline-block;
+    box-shadow:0 0 0 3px var(--teal-soft);
+  }
+  h1.name{
+    font-family:'Newsreader', serif;
+    font-weight:500;
+    font-size:clamp(40px, 6vw, 62px);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+    margin-bottom:14px;
+  }
+  .role-line{
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:540px;
+    margin-bottom:34px;
+  }
+  .role-line strong{ color:var(--ink); font-weight:600; }
+
+  .terminal{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13.5px;
+    background:var(--paper-dim);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px 18px;
+    max-width:560px;
+    color:var(--ink-soft);
+  }
+  .terminal .line{ display:flex; gap:10px; margin-bottom:4px; }
+  .terminal .line:last-child{ margin-bottom:0; }
+  .terminal .prompt{ color:var(--teal); flex-shrink:0; }
+  .terminal .cursor{
+    display:inline-block; width:7px; height:14px; background:var(--teal);
+    margin-left:2px; vertical-align:-2px;
+    animation:blink 1.1s steps(1) infinite;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  /* stat strip */
+  .stats{
+    display:flex; gap:0; margin-top:40px; flex-wrap:wrap;
+    border-top:1px solid var(--line);
+  }
+  .stat{
+    flex:1; min-width:130px;
+    padding:18px 20px 0 0;
+    border-right:1px solid var(--line);
+  }
+  .stat:last-child{ border-right:none; }
+  .stat-num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:24px; font-weight:600; color:var(--ink);
+  }
+  .stat-label{
+    font-size:12px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em;
+    margin-top:4px;
+  }
+
+  /* ---------- Sections ---------- */
+  section{ padding:60px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+
+  .query{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-bottom:28px;
+    padding-bottom:14px;
+    border-bottom:1px dashed var(--line);
+  }
+  .query .kw{ color:var(--teal); font-weight:600; }
+  .query .str{ color:var(--amber); }
+
+  h2.section-title{
+    font-family:'Newsreader', serif;
+    font-size:28px;
+    font-weight:500;
+    margin-bottom:6px;
+  }
+  .section-sub{
+    color:var(--ink-soft); font-size:14.5px; margin-bottom:30px;
+  }
+
+  /* ---------- Experience ---------- */
+  .entry{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:18px;
+    padding:22px 0;
+    border-top:1px solid var(--line);
+  }
+  .entry:first-child{ border-top:none; }
+  .entry-date{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px; color:var(--ink-soft);
+    padding-top:3px;
+  }
+  .entry-role{ font-weight:600; font-size:16px; margin-bottom:2px; }
+  .entry-org{ color:var(--teal); font-size:14px; margin-bottom:10px; font-weight:500; }
+  .entry ul{ list-style:none; }
+  .entry li{
+    position:relative; padding-left:16px; margin-bottom:7px;
+    font-size:14.5px; color:var(--ink-soft);
+  }
+  .entry li::before{
+    content:'—'; position:absolute; left:0; color:var(--line); color:var(--teal); opacity:0.55;
+  }
+  @media (max-width:600px){
+    .entry{ grid-template-columns:1fr; gap:6px; }
+  }
+
+  /* ---------- Projects ---------- */
+  .projects-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .project{
+    background:var(--paper);
+    padding:24px;
+    transition:background .18s ease;
+  }
+  .project:hover{ background:var(--paper-dim); }
+  .project-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; color:var(--teal);
+    text-transform:uppercase; letter-spacing:0.05em;
+    margin-bottom:10px;
+  }
+  .project-title{ font-weight:600; font-size:15.5px; margin-bottom:8px; }
+  .project-desc{ font-size:14px; color:var(--ink-soft); }
+  @media (max-width:600px){ .projects-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Education ---------- */
+  .edu-card{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    flex-wrap:wrap; gap:10px;
+  }
+  .edu-school{ font-family:'Newsreader', serif; font-size:22px; font-weight:500; }
+  .edu-degree{ color:var(--ink-soft); font-size:14.5px; margin-top:4px; }
+  .edu-meta{
+    font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--ink-soft);
+    text-align:right;
+  }
+  .edu-honors{
+    margin-top:18px; padding-top:18px; border-top:1px dashed var(--line);
+    font-size:14px; color:var(--ink-soft);
+  }
+  .edu-honors b{ color:var(--ink); }
+
+  /* ---------- Skills ---------- */
+  .skills-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:26px;
+  }
+  .skill-group-label{
+    font-family:'JetBrains Mono', monospace; font-size:11.5px;
+    color:var(--teal); text-transform:uppercase; letter-spacing:0.05em;
+    margin-bottom:12px;
+  }
+  .skill-list{ list-style:none; }
+  .skill-list li{
+    font-size:14px; padding:6px 0; border-top:1px solid var(--line);
+    color:var(--ink-soft);
+  }
+  .skill-list li:first-child{ border-top:none; }
+  @media (max-width:600px){ .skills-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Footer / Contact ---------- */
+  footer{ padding:60px 0 80px; }
+  .contact-row{
+    display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px;
+  }
+  .contact-cta h2{
+    font-family:'Newsreader', serif; font-size:32px; font-weight:500; margin-bottom:10px;
+  }
+  .contact-cta p{ color:var(--ink-soft); max-width:420px; font-size:14.5px; }
+  .contact-links{ display:flex; flex-direction:column; gap:10px; align-items:flex-end; }
+  .contact-links a{
+    font-family:'JetBrains Mono', monospace; font-size:14px;
+    text-decoration:none; color:var(--ink);
+    border-bottom:1px solid var(--line);
+    padding-bottom:2px;
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .contact-links a:hover{ color:var(--teal); border-color:var(--teal); }
+  .btn-download{
+    display:inline-block; margin-top:20px;
+    font-family:'JetBrains Mono', monospace; font-size:13px; font-weight:500;
+    background:var(--ink); color:var(--paper);
+    padding:11px 20px; text-decoration:none; border-radius:var(--radius);
+    transition:background .15s ease;
+  }
+  .btn-download:hover{ background:var(--teal); }
+  .foot-note{
+    margin-top:56px; padding-top:20px; border-top:1px solid var(--line);
+    font-size:12px; color:var(--ink-soft); display:flex; justify-content:space-between;
+    font-family:'JetBrains Mono', monospace;
+    flex-wrap:wrap; gap:8px;
+  }
+
+  /* reveal on scroll */
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .reveal{ opacity:1; transform:none; transition:none; }
+    .cursor{ animation:none; }
+  }
+
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--teal); outline-offset:2px; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-mark">AFL<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero" style="border-bottom:1px solid var(--line);">
+    <div class="hero-eyebrow mono">AVAILABLE FOR PART-TIME &amp; INTERNSHIP ROLES</div>
+    <h1 class="name">Alessandra Franco&nbsp;Lammoglia</h1>
+    <p class="role-line">Data Science &amp; Informatics student focused on <strong>statistical analysis, data systems, and applied analytics</strong> — currently leading data science efforts at Praus.</p>
+
+    <div class="terminal" role="img" aria-label="Terminal-style summary: currently studying Data Science and Informatics at Texas Woman's University, based in Dallas-Fort Worth, and working as Head of AI and Data Science at Praus.">
+      <div class="line"><span class="prompt">&gt;</span><span>studying: B.S. Data Science &amp; Informatics, Texas Woman's University</span></div>
+      <div class="line"><span class="prompt">&gt;</span><span>based in: Dallas–Fort Worth, TX</span></div>
+      <div class="line"><span class="prompt">&gt;</span><span>currently: Head of AI &amp; Data Science @ Praus<span class="cursor" aria-hidden="true"></span></span></div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-num">3.9</div><div class="stat-label">GPA</div></div>
+      <div class="stat"><div class="stat-num">2027</div><div class="stat-label">Expected Grad</div></div>
+      <div class="stat"><div class="stat-num">2</div><div class="stat-label">Languages</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Active Roles</div></div>
+    </div>
+  </section>
+
+  <section id="experience" class="reveal">
+    <div class="query"><span class="kw">SELECT</span> * <span class="kw">FROM</span> experience <span class="kw">WHERE</span> current = <span class="str">true</span>;</div>
+    <h2 class="section-title">Experience</h2>
+    <p class="section-sub">Roles spanning data science, education, and operations.</p>
+
+    <div class="entry">
+      <div class="entry-date mono">DEC 2023 —<br>PRESENT</div>
+      <div>
+        <div class="entry-role">Head of AI &amp; Data Science</div>
+        <div class="entry-org">Praus · Dallas–Fort Worth Metroplex</div>
+        <ul>
+          <li>Lead data science and statistical modeling for an agentic software platform that grows AUM for funds by automating capital raising, deployment, and operations.</li>
+          <li>Develop analytical models and LP intelligence signals that inform real-time fund decisions and deal flow prioritization.</li>
+          <li>Translate statistical findings into actionable insight for fund operators.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date mono">AUG 2025 —<br>PRESENT</div>
+      <div>
+        <div class="entry-role">Kids Ministry Assistant</div>
+        <div class="entry-org">New Beginnings Church · Bedford, TX</div>
+        <ul>
+          <li>Own budgeting and expense tracking for ministry programs, maintaining fiscal accountability.</li>
+          <li>Manage administrative and operational systems that keep multi-person workflows on schedule.</li>
+          <li>Plan and coordinate recurring events end-to-end.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date mono">FALL 2024 —<br>SPRING 2025</div>
+      <div>
+        <div class="entry-role">Supplemental Instructor</div>
+        <div class="entry-org">Texas Woman's University · Denton, TX</div>
+        <ul>
+          <li>Led weekly supplemental instruction sessions in statistics for enrolled students.</li>
+          <li>Designed lesson plans and activities that clarified complex statistical topics.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date mono">SUMMER 2024,<br>2025, 2026</div>
+      <div>
+        <div class="entry-role">Student Assistant · Statistics Tutor</div>
+        <div class="entry-org">Texas Woman's University, CARE Office · Denton, TX</div>
+        <ul>
+          <li>Tutored foster care students in statistics through a three-week annual summer program.</li>
+          <li>Applied adaptive teaching methods across varying academic levels.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="reveal">
+    <div class="query"><span class="kw">SELECT</span> title, stack <span class="kw">FROM</span> projects <span class="kw">ORDER BY</span> relevance <span class="kw">DESC</span>;</div>
+    <h2 class="section-title">Projects</h2>
+    <p class="section-sub">Applied coursework — statistics, databases, and analysis.</p>
+
+    <div class="projects-grid">
+      <div class="project">
+        <div class="project-tag mono">Python</div>
+        <div class="project-title">Statistical Calculator</div>
+        <div class="project-desc">Built a Python class to compute core descriptive statistics programmatically.</div>
+      </div>
+      <div class="project">
+        <div class="project-tag mono">Python · Data</div>
+        <div class="project-title">Movie Rental Dataset Analysis</div>
+        <div class="project-desc">Normalized and analyzed a movie rental dataset to calculate average rent-per-day metrics, applying database normalization principles.</div>
+      </div>
+      <div class="project">
+        <div class="project-tag mono">SQL · MySQL Workbench</div>
+        <div class="project-title">Little Chords Kindergarten System</div>
+        <div class="project-desc">Designed a relational database for a kindergarten management system — ER diagramming, schema normalization, and querying in MySQL Workbench.</div>
+      </div>
+      <div class="project">
+        <div class="project-tag mono">Excel · Python</div>
+        <div class="project-title">Patient Discharge Dataset Analysis</div>
+        <div class="project-desc">Analyzed a healthcare informatics dataset in Excel and Python, drawing insights from real clinical data.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="reveal">
+    <div class="query"><span class="kw">SELECT</span> * <span class="kw">FROM</span> education <span class="kw">ORDER BY</span> year <span class="kw">DESC</span>;</div>
+    <h2 class="section-title">Education</h2>
+
+    <div class="edu-card">
+      <div>
+        <div class="edu-school">Texas Woman's University</div>
+        <div class="edu-degree">B.S. Data Science &amp; Informatics</div>
+      </div>
+      <div class="edu-meta">2023 – 2027<br>Denton, TX · GPA 3.9</div>
+    </div>
+
+    <div class="edu-honors">
+      <b>Honors:</b> Chancellor's List (2023–2024) · Dean's List (2025)<br>
+      <b>Relevant Coursework:</b> Database Systems, Statistics, Healthcare Informatics, Web Interface Design
+    </div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <div class="query"><span class="kw">SELECT</span> * <span class="kw">FROM</span> skills <span class="kw">GROUP BY</span> category;</div>
+    <h2 class="section-title">Skills</h2>
+
+    <div class="skills-grid">
+      <div>
+        <div class="skill-group-label">Analytical</div>
+        <ul class="skill-list">
+          <li>Statistical analysis</li>
+          <li>Data normalization</li>
+          <li>ER modeling</li>
+          <li>Database design</li>
+          <li>Dataset analysis (Excel/Python)</li>
+        </ul>
+      </div>
+      <div>
+        <div class="skill-group-label">Technical</div>
+        <ul class="skill-list">
+          <li>Python</li>
+          <li>SQL / MySQL Workbench</li>
+          <li>JavaScript</li>
+          <li>Git / GitHub</li>
+          <li>Microsoft &amp; Google Suite</li>
+        </ul>
+      </div>
+      <div>
+        <div class="skill-group-label">Language</div>
+        <ul class="skill-list">
+          <li>English — native</li>
+          <li>Spanish — bilingual</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact" class="reveal">
+    <div class="query"><span class="kw">INSERT INTO</span> conversations (from, to) <span class="kw">VALUES</span> (<span class="str">'you'</span>, <span class="str">'ale'</span>);</div>
+    <div class="contact-row">
+      <div class="contact-cta">
+        <h2>Let's talk.</h2>
+        <p>Open to part-time and internship roles in data science, analytics, and adjacent fields — flexible availability outside of Monday mornings.</p>
+        <a class="btn-download" href="Alessandra_Lammoglia_Resume_Harvard.pdf" download>Download résumé (PDF) ↓</a>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:alessandrac.francol@gmail.com">alessandrac.francol@gmail.com</a>
+        <a href="https://www.linkedin.com/in/ale-lamm-296867255/" target="_blank" rel="noopener">linkedin.com/in/ale-lamm</a>
+      </div>
+    </div>
+
+    <div class="foot-note">
+      <span>© 2026 Alessandra Franco Lammoglia</span>
+      <span>Dallas–Fort Worth, TX</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // Scroll-reveal for sections
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
