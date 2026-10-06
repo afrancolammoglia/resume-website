@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alessandra Franco Lammoglia</title>
+<meta name="description" content="Data Science & Informatics student at Texas Woman's University and AI and Data Analytics Lead at Praus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #1a1f36;
+    --muted: #5b6175;
+    --accent: #7a2e54;
+    --line: #e4e6ee;
+    --soft: #f5f2f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14161f;
+      --ink: #eceef4;
+      --muted: #a3a8b8;
+      --accent: #e39bbd;
+      --line: #2a2e3c;
+      --soft: #1d2030;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 72px 24px 96px; }
+
+  header { padding-bottom: 40px; border-bottom: 2px solid var(--ink); margin-bottom: 48px; }
+  h1 {
+    font-family: "Bodoni Moda", Didot, "Times New Roman", serif;
+    font-weight: 700;
+    font-size: clamp(2.6rem, 8vw, 4.4rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .tagline { margin-top: 16px; font-size: 1.125rem; color: var(--muted); max-width: 34em; }
+  .contact { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .contact a, .contact span {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .contact a.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); font-weight: 700; }
+  .contact a:hover { border-color: var(--accent); }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+  section { margin-bottom: 56px; }
+  h2 {
+    font-family: "Bodoni Moda", Didot, "Times New Roman", serif;
+    font-weight: 500;
+    font-size: 1.75rem;
+    margin-bottom: 24px;
+  }
+
+  .entry { display: grid; grid-template-columns: 170px 1fr; gap: 24px; padding: 20px 0; border-top: 1px solid var(--line); }
+  .entry:first-of-type { border-top: none; padding-top: 0; }
+  .when { font-size: 0.875rem; color: var(--muted); padding-top: 3px; }
+  h3 { font-size: 1.05rem; font-weight: 700; line-height: 1.35; }
+  .where { color: var(--accent); font-size: 0.95rem; font-weight: 500; margin-bottom: 8px; }
+  ul { padding-left: 1.1em; color: var(--muted); }
+  li { margin-bottom: 6px; }
+  li::marker { color: var(--accent); }
+
+  .skills { display: grid; gap: 16px; }
+  .skill-row { display: grid; grid-template-columns: 170px 1fr; gap: 24px; }
+  .skill-row strong { font-weight: 700; }
+  .skill-row p { color: var(--muted); }
+
+  .links { display: flex; flex-wrap: wrap; gap: 16px; margin: 4px 0 10px; font-size: 0.9rem; font-weight: 700; }
+  .links a { color: var(--accent); text-underline-offset: 3px; }
+  .edu { background: var(--soft); padding: 24px; border-radius: 6px; }
+  .edu p { color: var(--muted); }
+
+  footer { color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--line); padding-top: 24px; }
+
+  @media (max-width: 620px) {
+    .wrap { padding-top: 48px; }
+    .entry, .skill-row { grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Alessandra Franco Lammoglia</h1>
+    <p class="tagline">Data Science &amp; Informatics student at Texas Woman's University and AI and Data Analytics Lead at Praus.</p>
+    <div class="contact">
+      <a class="primary" href="https://www.linkedin.com/in/alessandra-lammoglia-296867255" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:ale.lammoglia@gmail.com">ale.lammoglia@gmail.com</a>
+      <span>Lewisville, TX</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Education</h2>
+    <div class="edu">
+      <h3>Bachelor of Science in Data Science &amp; Informatics</h3>
+      <div class="where">Texas Woman's University, Denton, TX &nbsp;|&nbsp; 2023 – 2027</div>
+      <p>GPA: 3.9 &nbsp;|&nbsp; Chancellor's List (2023–2024), Dean's List (2025)</p>
+      <p>Coursework: Database Systems, Statistics, Healthcare Informatics, Web Interface Design</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <div class="when">Dec 2023 – Present</div>
+      <div>
+        <h3>AI and Data Analytics Lead</h3>
+        <div class="where">Praus, Dallas-Fort Worth</div>
+        <ul>
+          <li>Lead data science and statistical modeling for Praus, an agentic platform that helps investment funds raise capital, source deals, and run operations without adding headcount</li>
+          <li>Build LP intelligence signals that surface investors actively deploying into a fund's strategy, and deal sourcing models that surface opportunities before they hit the market</li>
+          <li>Develop connected reporting and portfolio monitoring systems that give fund operators one reliable source of truth instead of disconnected tools</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">Sep 2025 – Present</div>
+      <div>
+        <h3>Kids Ministry Assistant</h3>
+        <div class="where">Larry Huch Ministries, Bedford, TX</div>
+        <ul>
+          <li>Plan and coordinate children's ministry events, ensuring efficient execution and a positive, organized environment</li>
+          <li>Oversee financial operations, including budgeting and expense tracking</li>
+          <li>Manage administrative and operational systems for smooth workflows and clear communication among staff and volunteers</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">Summers 2024, 2025, 2026</div>
+      <div>
+        <h3>Student Assistant</h3>
+        <div class="where">Texas Woman's University, Denton, TX</div>
+        <ul>
+          <li>Tutored foster care students in statistics through the CARE Office during a three-week summer program</li>
+          <li>Applied personalized, adaptive teaching methods to match varying academic levels and learning styles</li>
+          <li>Helped underserved students build confidence and improve academic outcomes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">Aug 2024 – Jan 2025</div>
+      <div>
+        <h3>Supplemental Instructor</h3>
+        <div class="where">Texas Woman's University, Denton, TX</div>
+        <ul>
+          <li>Led weekly supplemental instruction sessions in statistics, reinforcing course content outside of class</li>
+          <li>Developed structured lesson plans and interactive activities to clarify complex statistical topics</li>
+          <li>Promoted academic success and retention through an inclusive, collaborative environment</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">Summer 2024</div>
+      <div>
+        <h3>Wholesale Sales Representative</h3>
+        <div class="where">GLY, Inc., World Trade Center, Dallas, TX</div>
+        <ul>
+          <li>Built relationships with boutique owners and store buyers, advising on merchandise trends and best-selling styles</li>
+          <li>Pitched wholesale denim lines to independent boutiques and regional chains, tailored to each buyer</li>
+          <li>Managed follow-ups, order timelines, and re-orders based on buyer feedback</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+
+    <div class="entry">
+      <div class="when">CSCI 3423</div>
+      <div>
+        <h3>Little Chords Kindergarten Database</h3>
+        <div class="links"><a href="LittleChords_Report.pdf" target="_blank" rel="noopener">Project report (PDF)</a><a href="LittleChords.sql" target="_blank" rel="noopener">SQL code</a><a href="Little_Chords_Kindergarten_Dashboard.pdf" target="_blank" rel="noopener">Power BI dashboard (PDF)</a></div>
+        <ul>
+          <li>Designed a relational database for a kindergarten management system, including ER diagramming and schema normalization</li>
+          <li>Built and queried structured datasets in MySQL Workbench</li>
+          <li>Built a Power BI dashboard visualizing tuition payments, staff salaries, and inventory reorder needs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">Python</div>
+      <div>
+        <h3>Statistical &amp; Data Analysis</h3>
+        <ul>
+          <li>Built a Python StatisticalCalculator class to compute core descriptive statistics</li>
+          <li>Normalized and analyzed a movie rental dataset to calculate average rent-per-day metrics</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill-row"><strong>Technical</strong><p>Python, SQL, JavaScript, MySQL Workbench, Power BI, Microsoft &amp; Google Suite, Git/GitLab</p></div>
+      <div class="skill-row"><strong>Analytical</strong><p>Statistical analysis, data normalization, ER modeling, database design, dataset analysis (Excel/Python)</p></div>
+      <div class="skill-row"><strong>Languages</strong><p>English and Spanish (bilingual)</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Alessandra Franco Lammoglia &nbsp;|&nbsp; <a href="https://www.linkedin.com/in/alessandra-lammoglia-296867255" target="_blank" rel="noopener" style="color: var(--accent);">LinkedIn</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
